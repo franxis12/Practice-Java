@@ -1,0 +1,45 @@
+body {
+  font-family: sans-serif;
+  background: #111;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #222;
+  border-radius: 8px;
+  width: 200px;
+  padding: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+  border: solid 4px #333;
+}
+
+.card.expanded {
+  transform: scale(1.05);
+  background: #333;
+}
+
+.card .description {
+  margin-top: 8px;
+  font-size: 14px;
+  display: none;
+}
+
+.card.expanded .description {
+  display: block;
+}
