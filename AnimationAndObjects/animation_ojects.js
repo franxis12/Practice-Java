@@ -28,10 +28,29 @@ btnAddCharater.addEventListener("click", () => {
   const descripcion = document.getElementById("nuevaDescripcion").value;
   const imagen = document.getElementById("nuevaImagen").value;
 
-  if (nombre === "" || descripcion === "" || imagen === "") {
-    alert("Complete all fields.");
-    return;
-  }
+ document.getElementById("nuevoNombre").classList.remove("input-error");
+document.getElementById("nuevaDescripcion").classList.remove("input-error");
+document.getElementById("nuevaImagen").classList.remove("input-error");
+
+let hayError = false;
+
+if (nombre === "") {
+  document.getElementById("nuevoNombre").classList.add("input-error");
+  hayError = true;
+}
+if (descripcion === "") {
+  document.getElementById("nuevaDescripcion").classList.add("input-error");
+  hayError = true;
+}     
+if (imagen === "") {
+  document.getElementById("nuevaImagen").classList.add("input-error");
+  hayError = true;
+}
+
+if (hayError) {
+  alert("Complete all fields.");
+  return;
+}
 
   if (modoEdicion) {
     const index = personajes.findIndex(p => p.id === idEnEdicion);
@@ -54,6 +73,8 @@ btnAddCharater.addEventListener("click", () => {
   }
 
   shoCharacter(personajes);
+  localStorage.setItem("personajes", JSON.stringify(personajes));
+
   document.getElementById("nuevoNombre").value = "";
   document.getElementById("nuevaDescripcion").value = "";
   document.getElementById("nuevaImagen").value = "";
@@ -70,6 +91,8 @@ btnFiltrar.addEventListener("click", () => {
 });
 
 function shoCharacter(array){
+
+  
     const div = document.getElementById("cardContainer");
     div.innerHTML = ""
 
@@ -107,12 +130,13 @@ function shoCharacter(array){
         deleteBtn.addEventListener("click", function () {
           const idAEliminar = array[i].id;
 
-           // Buscamos el índice en el array original (personajes)
-          const index = personajes.findIndex(p => p.id === idAEliminar);
+            // Buscamos el índice en el array original (personajes)
+            const index = personajes.findIndex(p => p.id === idAEliminar);
   
             if (index !== -1) {
             personajes.splice(index, 1);
              shoCharacter(personajes); // Volvemos a mostrar los restantes
+             localStorage.setItem("personajes", JSON.stringify(personajes));
             }
      
 
@@ -135,6 +159,11 @@ function shoCharacter(array){
         })
     };
 }
-
+const dataGuardada = localStorage.getItem("personajes");
+if (dataGuardada) {
+  const personajesCargados = JSON.parse(dataGuardada);
+  personajes.length = 0;
+  personajes.push(...personajesCargados);
+}
 
 shoCharacter(personajes);
