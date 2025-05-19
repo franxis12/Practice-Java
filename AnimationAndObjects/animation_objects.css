@@ -43,3 +43,45 @@ body {
 .card.expanded .description {
   display: block;
 }
+
+.deleteBtn{
+  width: 90px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ff2d2d;
+  font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+}
+
+.deleteBtn:hover{
+  background-color: #ffa0a0;
+}
+
+.editBtn{
+  margin: 10px;
+  width: 90px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: #3586ff;
+  font-weight: bold;
+  color: #fff;
+  font-size: 13px;
+}
+
+.editBtn:hover{
+  background-color: #7fb2ff;
+}
+
+.input{
+  width: 30%;
+  height: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  margin: 20px;
+}
+
+
