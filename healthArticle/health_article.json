@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "title": "Ejercicio Diario",
+      "description": "La importancia del movimiento regular.",
+      "ways_to_achieve": ["Caminar 30 minutos", "Evitar el sedentarismo"],
+      "benefits": ["Mejor salud mental", "Corazón más fuerte"]
+    },
+    {
+      "title": "Buena Alimentación",
+      "description": "Nutrición balanceada para el cuerpo.",
+      "ways_to_achieve": ["Verduras y frutas", "Evitar azúcares procesados"],
+      "benefits": ["Más energía", "Peso saludable"]
+    }
+  ]
+}
